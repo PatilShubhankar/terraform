@@ -7,7 +7,7 @@ terraform {
   }
   required_version = "~> 1.5.0"
   backend "s3" {
-    profile = "terraform"
+    profile        = "terraform"
     bucket         = "dev-shubhankar-remote-state-bucket"
     key            = "terraform.tfstate"
     region         = "eu-north-1"
