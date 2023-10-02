@@ -8,3 +8,6 @@ output "aws-vpc-subnet-ids" {
   value       = module.network_flow.pub_sub_id
 }
 
+output "aws-alb-public-dns" {
+  value = module.application-load-balancer.alb_dns
+}

@@ -61,3 +61,16 @@ variable "asg_tag_name" {
   default = "two tier asg"
   type    = string
 }
+
+
+
+/*
+*****************************************************
+                ASG ATACHMENT VARIABLES
+*****************************************************
+*/
+
+variable "alb_target_arn" {
+  type = string
+  description = "ARN for Aplication Load Balnacer to attach to ASG"
+}

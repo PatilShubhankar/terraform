@@ -24,3 +24,9 @@ resource "aws_launch_template" "lt-asg" {
   vpc_security_group_ids = [var.lt-instance-sg]
   user_data              = filebase64("${path.root}/install-apche.sh")
 }
+
+#Attach the Autoscaling group to the target group of ALB
+resource "aws_autoscaling_attachment" "atch-asg-alb" {
+  autoscaling_group_name = aws_autoscaling_group.trf-module-asg.id
+  lb_target_group_arn = var.alb_target_arn
+}
