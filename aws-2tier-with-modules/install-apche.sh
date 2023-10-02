@@ -11,4 +11,4 @@ systemctl start httpd.service
 systemctl enable httpd.service
 
 #Adds our custom webpage html code to "index.html" file.
-echo "<html><body><h1>Build with Terrafomr modules ${hostname -i}!</h1></body><html>" > /var/www/html/index.html
+echo "<html><body><h1>Build with Terrafomr modules `hostname -i`!</h1></body><html>" > /var/www/html/index.html
