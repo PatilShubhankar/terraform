@@ -53,3 +53,67 @@ variable "subent_name" {
   type    = string
   default = "public-subnet"
 }
+
+/*
+*****************************************************
+                 GATEWAY VARIABLES
+*****************************************************
+*/
+variable "igw-name" {
+  type    = string
+  default = "public-igw"
+}
+
+
+/*
+*****************************************************
+                 ROUTE-TABLE VARIABLES
+*****************************************************
+*/
+
+variable "public-rt-cidr" {
+  type        = string
+  description = "CIDR block to route traffic from anywhere to intergateway"
+  default     = "0.0.0.0/0"
+}
+
+variable "public-route-table-name" {
+  type        = string
+  description = "Name for public route table"
+  default     = "public-route-table"
+}
+
+/*
+*****************************************************
+                SECURITY GROUP VARIABLES
+*****************************************************
+*/
+variable "alb-sg-name" {
+  type        = string
+  description = "Name for security group ALB"
+  default     = "alb-security-group"
+}
+
+variable "asg-sg-name" {
+  type        = string
+  description = "Name for security group ASG"
+  default     = "asg-security-group"
+}
+
+variable "db-sg-name" {
+  type        = string
+  description = "Name for security group DB"
+  default     = "db-security-group"
+}
+
+/*
+*****************************************************
+                AVAILABLITY ZONE VARIABLES
+*****************************************************
+*/
+
+variable "availability_zones" {
+  type        = list(string)
+  description = "List of AWS availablity zones"
+  default     = ["eu-north-1a", "eu-north-1b"]
+}
