@@ -6,6 +6,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.public-subnet.id
   associate_public_ip_address = true
+  user_data_replace_on_change = true
   user_data                   = <<-EOF
         apt-get update
         apt-get install -y apt-transport-https ca-certificates curl software-properties-common
@@ -16,7 +17,7 @@ resource "aws_instance" "web" {
         stable"
         apt-get update
         apt-get install -y docker-ce
-        usermod -aG docker ec2-user
+        usermod -aG docker ubuntu
         EOF
 
   tags = {

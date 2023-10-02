@@ -7,5 +7,5 @@ variable "region" {
 
 variable "ec2-ami-id" {
   type    = string
-  default = "ami-0cea4844b980fe49e"
+  default = "ami-0989fb15ce71ba39e"
 }
