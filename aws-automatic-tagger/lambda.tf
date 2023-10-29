@@ -47,6 +47,7 @@ resource "aws_lambda_function" "autolog" {
   s3_bucket = aws_s3_bucket.lambda_bucket.id
   s3_key    = aws_s3_object.lambda_package.key
 
+  depends_on = [ aws_cloudwatch_log_group.lambda_log_grp ]
 
   runtime     = "python3.9"
   handler     = "main_lambda.lambda_handler"
