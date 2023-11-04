@@ -12,7 +12,7 @@ resource "aws_db_instance" "mysql-db" {
   skip_final_snapshot    = true
   multi_az               = false
   vpc_security_group_ids = [aws_security_group.db-sg.id] # Attach the RDS security group
-  db_subnet_group_name = aws_db_subnet_group.db_subnet.name
+  db_subnet_group_name   = aws_db_subnet_group.db_subnet.name
   tags = {
     Name = "MySQl DB"
   }

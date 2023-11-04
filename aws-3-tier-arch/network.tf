@@ -28,8 +28,8 @@ resource "aws_subnet" "private-subnets" {
 
   count = length(var.aws-availability-zone)
 
-  cidr_block = "10.0.${count.index + 2}.0/24"
-  availability_zone = element(var.aws-availability-zone, count.index)
+  cidr_block              = "10.0.${count.index + 2}.0/24"
+  availability_zone       = element(var.aws-availability-zone, count.index)
   map_public_ip_on_launch = true
 
   tags = {
@@ -38,10 +38,10 @@ resource "aws_subnet" "private-subnets" {
 }
 
 resource "aws_subnet" "private-db-subnets" {
-  vpc_id = aws_vpc.three-tier-project-vpc.id
-  count = length(var.aws-availability-zone)
-  cidr_block = "10.0.${count.index + 4}.0/24"
-  availability_zone = element(var.aws-availability-zone, count.index)
+  vpc_id                  = aws_vpc.three-tier-project-vpc.id
+  count                   = length(var.aws-availability-zone)
+  cidr_block              = "10.0.${count.index + 4}.0/24"
+  availability_zone       = element(var.aws-availability-zone, count.index)
   map_public_ip_on_launch = false
 
   tags = {
